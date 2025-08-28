@@ -1,0 +1,52 @@
+---
+title: "Creacion de tablas"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creacion de tablas
+
+Hay algunos paquetes que se pueden usar para crear bonitas tablas en RMarkdown
+- knitr
+- stargazer
+- pander
+- tables
+- ascii
+
+Ya hemos desarrollado la habilidad de poder aprender por nuestra propia cuenta.
+
+## El paquete Knitr 
+
+La función kable en knitr le permite crear tablas básicas, con algunas opciones de formato diferentes.
+
+```{r}
+#install.packages("knitr")
+library(knitr)
+
+kable(head(iris), caption="A simple table about flowers")
+kable(head(iris), format= 'html', caption="A simple table about flowers")
+kable(head(iris), format= 'latex', caption="A simple table about flowers")  #Latex isn't working on my computer
+```
+## Formatting options
+Kableextra tiene más opciones
+
+```{r}
+#install.packages("kableExtra")
+
+```
+
+```{r}
+
+library(kableExtra)
+library(dplyr)
+
+dt <- head(iris)
+
+kable(dt) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+
